@@ -1,13 +1,13 @@
-# 📦 The Legacy Box Collection
+# 💎 The Legacy Box Collection
 
 **The Legacy Box Collection** is an experimental art project, luxury collectible, and internet meme all rolled into one.  
-Only **10 Legacy Boxes** will ever exist. Each box isn’t about what’s inside—it’s about the story, the exclusivity, and the history you own.
+Only **10 Legacy Boxes** will ever exist. Each box isn’t about what’s inside, it’s about the story, the exclusivity, and the history you own.
 
 ---
 
-## 🌟 Overview
-- **Founder Box (#1)** → Price: **$15,000**  
-  - Grants **30% revenue share** from the fixed-price sales of Boxes #2–#9.  
+## ⚠️ Overview
+- **Founder Box (#1)** → Price: **$10,000**  
+  - Grants **30% revenue share** from the fixed price sales of Boxes #2–#9.  
   - Owner is immortalized as the **Founding Investor**.  
 
 - **Standard Boxes (#2–#9)** → Price: **$10,000 each**  
@@ -31,9 +31,8 @@ Only **10 Legacy Boxes** will ever exist. Each box isn’t about what’s inside
 
 ## 📜 Rules
 1. **Only 10 boxes will ever exist.**  
-2. **No refunds** — this is a conceptual collectible.  
+2. **No refunds** this is a conceptual collectible.  
 3. **Immortalized Names:** Owners pick an alias that will be displayed permanently.  
-4. **Resale Allowed:** Boxes can be resold; ownership registry can be updated.  
 5. **Revenue share:** Box #1 gets 30% of fixed-price sales from Boxes #2–#9.  
 6. **Auction rules for Box #10:** Highest-bidder wins; details published before auction.  
 7. **Aliases must follow terms:** No hate/illegal names.  
@@ -50,7 +49,7 @@ Only **10 Legacy Boxes** will ever exist. Each box isn’t about what’s inside
 
 ---
 
-## 🎯 Target Audience
+## 👥 Target Audience
 - High-net-worth individuals 💸  
 - Collectors of rare physical & digital items  
 - Meme enthusiasts & tech culture fans  
@@ -58,8 +57,8 @@ Only **10 Legacy Boxes** will ever exist. Each box isn’t about what’s inside
 
 ---
 
-## 🚀 Vision
-This project isn’t just selling boxes—it’s selling **a piece of internet history**.  
+## 🎯 Vision
+This project isn’t just selling boxes, it’s selling **a piece of internet history**.  
 The Legacy Box Collection bridges the **physical, digital, and cultural worlds**.  
 
 **Only 10 people in the world** will ever get to say:  
@@ -70,13 +69,12 @@ The Legacy Box Collection bridges the **physical, digital, and cultural worlds**
 ## 📝 Disclaimer
 - The Legacy Box Collection is a **conceptual collectible**.  
 - Purchases represent ownership of an **idea + recognition**, not a physical utility product.  
-- All sales are **final**.  
-- Resale is permitted, but names displayed on the site may only be updated on request.  
+- All sales are **final**.
 
 ---
 
-## 📬 Contact
+## 📞 Contact
 - Project Creator: **Lionshaft**  
-- For press & inquiries: [Insert your email or site contact form]  
+- For press & inquiries: **therareboxcollection@gmail.com**  
 
 ---
