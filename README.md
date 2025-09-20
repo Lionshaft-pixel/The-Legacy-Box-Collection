@@ -20,10 +20,10 @@ Only **10 Legacy Boxes** will ever exist. Each box isn’t about what’s inside
 ---
 
 ## 💰 Revenue Example
-- Founder pays **$15k**.  
+- Founder pays **$10k**.  
 - If all 8 standard boxes sell: **$80k revenue**.  
 - Founder gets **30% share = $24k**.  
-- Net gain for Founder: **+ $9k** (plus prestige).  
+- Net gain for Founder: **+ $14k** (plus prestige).  
 
 **Box #10 auction** proceeds are independent and *not* part of the revenue share.
 
