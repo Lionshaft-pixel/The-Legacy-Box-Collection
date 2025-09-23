@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - The Legacy Box Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        :root {
+            --gold: #D4AF37;
+            --black: #121212;
+            --white: #F5F5F5;
+            --gray: #333333;
+            --dark-gray: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 20%);
+        }
+
+        /* Luxury Scrollbar */
+        body::-webkit-scrollbar {
+            width: 14px;
+            background: var(--black);
+        }
+        body::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #D4AF37 40%, #AA8A2D 100%);
+            border-radius: 10px;
+            border: 3px solid var(--black);
+            box-shadow: 0 0 10px #D4AF3780;
+        }
+        body::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+        body::-webkit-scrollbar-corner {
+            background: var(--black);
+        }
+        html {
+            scrollbar-color: #D4AF37 var(--black);
+            scrollbar-width: thin;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0 40px;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            color: var(--gold);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #ccc;
+        }
+        
+        /* Policy Content */
+        .policy-content {
+            padding: 40px 0 80px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .section:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section h2 i {
+            font-size: 1.5rem;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+        
+        .section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        .section li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .section li:before {
+            content: "•";
+            color: var(--gold);
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+        
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .privacy-badge {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            color: var(--gold);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px 5px 5px 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            overflow: hidden;
+        }
+
+        .privacy-badge::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(145deg, rgba(87, 209, 31, 0.842), rgba(19, 85, 226, 0.623));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+
+        .privacy-badge:hover::after {
+            opacity: 1;
+        }
+
+        .privacy-badge span, .privacy-badge {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+            background: var(--dark-gray);
+        }
+        
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 30px;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-cube" style="font-size: 36px; color: #D4AF37;"></i>
+                <a href="index.html" style="color:inherit;text-decoration:none;"><span>The Legacy Box Collection</span></a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p>Your privacy is valued as much as your acquisition. Learn how we protect and respect your information.</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="policy-content">
+            <div class="section">
+                <h2><i class="fas fa-shield-alt"></i> Data Protection Commitment</h2>
+                <p>At The Legacy Box Collection, we treat your personal information with the same exclusivity and care as our boxes. This policy outlines how we collect, use, and protect your data.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-info-circle"></i> Information We Collect</h2>
+                <p>We collect only essential information necessary for your Legacy Box experience:</p>
+                <ul>
+                    <li>Contact details (name, email, phone number)</li>
+                    <li>Payment information (processed securely through our partners eg - Paypal, Stripe)</li>
+                    <li>Communication preferences</li>
+                    <li>Stewardship details for patronage sharing purposes</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Premium Privacy:</strong> We never sell your personal information to third parties. Your data remains exclusively within The Legacy Box Collection ecosystem.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-lock"></i> How We Use Your Information</h2>
+                <p>Your information enables us to provide exceptional service:</p>
+                <ul>
+                    <li>Process your Legacy Box acquisition and stewardship registration</li>
+                    <li>Manage patronage sharing distributions for founding patrons</li>
+                    <li>Provide patron support and important collection updates</li>
+                    <li>Enhance your experience with personalized communications</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-hand-holding-usd"></i> Financial Data Security</h2>
+                <p>We implement enterprise-grade security measures for all financial transactions:</p>
+                <ul>
+                    <li>SSL encryption for all data transfers</li>
+                    <li>PCI-DSS compliant payment processing</li>
+                    <li>Secure storage of financial records for revenue distribution</li>
+                    <li>Regular security audits and monitoring</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-cookie"></i> Cookies & Tracking</h2>
+                <p>We use minimal, essential cookies to enhance your experience:</p>
+                <span class="privacy-badge">Session Management</span>
+                <span class="privacy-badge">Site Performance</span>
+                <span class="privacy-badge">Preference Storage</span>
+                <p style="margin-top: 15px;">We do not use intrusive tracking or advertising cookies. Your browsing of our collection remains private.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-user-shield"></i> Your Rights</h2>
+                <p>As a valued Legacy Box collector, you have the right to:</p>
+                <ul>
+                    <li>Access your personal information we hold</li>
+                    <li>Request correction of inaccurate data</li>
+                    <li>Opt-out of marketing communications</li>
+                    <li>Request deletion of your data (subject to legal requirements)</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                <p>For privacy-related inquiries or to exercise your rights, contact here :</p>
+                <p><strong>Email:</strong> therareboxcollection@gmail.com</p>
+                <p><strong>Response Time:</strong> We commit to responding to all privacy inquiries within 72 hours.</p>
+            </div>
+            
+            <p><strong>Last Updated:</strong> September 21, 2025</p>
+            
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Return to Collection
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 The Legacy Box Collection. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="T&C.html" style="color: #999; text-decoration: none;">Terms & Conditions</a> • 
+                <a href="#" style="color: #D4AF37; text-decoration: none;">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

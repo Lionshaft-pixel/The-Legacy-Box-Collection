@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - The Legacy Box Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        :root {
+            --gold: #D4AF37;
+            --black: #121212;
+            --white: #F5F5F5;
+            --gray: #333333;
+            --dark-gray: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 20%);
+        }
+        
+        /* Luxury Scrollbar */
+        body::-webkit-scrollbar {
+            width: 14px;
+            background: var(--black);
+        }
+        
+        body::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #D4AF37 40%, #AA8A2D 100%);
+            border-radius: 10px;
+            border: 3px solid var(--black);
+            box-shadow: 0 0 10px #D4AF3780;
+        }
+        
+        body::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+        
+        body::-webkit-scrollbar-corner {
+            background: var(--black);
+        }
+        
+        /* Firefox */
+        html {
+            scrollbar-color: #D4AF37 var(--black);
+            scrollbar-width: thin;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 0 60px;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            color: var(--gold);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #ccc;
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            padding: 40px 0 100px;
+        }
+        
+        .faq-category {
+            margin-bottom: 60px;
+        }
+        
+        .faq-category h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .faq-item {
+            background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: var(--gold);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #ccc;
+            line-height: 1.7;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 30px 25px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* Contact CTA */
+        .contact-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            margin: 60px 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .contact-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(145deg, #D4AF37, #AA8A2D);
+            color: var(--black);
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 15px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+            background: var(--dark-gray);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .faq-question {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
+            
+            .faq-answer {
+                padding: 0 20px;
+            }
+            
+            .faq-item.active .faq-answer {
+                padding: 0 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-cube" style="font-size: 36px; color: #D4AF37;"></i>
+                <span>The Legacy Box Collection</span>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about The Legacy Box Collection and collector benefits</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="faq-container">
+            <div class="faq-category">
+                <h2>General Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the Legacy Box Collection?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The Legacy Box Collection is an exclusive offering of only 10 meticulously crafted luxury boxes that represent a revolutionary blend of digital history, art, and conceptual value. Each box is a unique artifact of digital legacy that combines physical artistry with innovative patronage mechanics, creating both a tangible luxury item and a meaningful digital artifact.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How many boxes are available?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>There are only 10 boxes in the entire Legacy Box Collection, making each one extremely exclusive and valuable. This limited availability ensures that each box remains a rare artifact of digital history. The numbered boxes (#1 through #10) each represent a unique position in this exclusive collection, with Box #1 offering special founding investor benefits.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's inside the boxes?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While the physical boxes are beautifully crafted luxury items, their true value lies in what they represent rather than physical contents. Each box contains the opportunity for digital fame, historical significance, and financial investment. Owners become part of an exclusive legacy, with their ownership permanently recorded in the project's history. The value is in the prestige, exclusivity, and potential financial returns rather than physical objects.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why are the boxes so expensive?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The boxes are priced at a premium level because they represent far more than physical objects. Each box offers:</p>
+                        <ul>
+                            <li>Extreme exclusivity (only 10 will ever exist)</li>
+                            <li>Potential for significant financial returns through our unique revenue-sharing model</li>
+                            <li>Permanent place in digital history</li>
+                            <li>Status symbol and conversation piece</li>
+                            <li>Membership in an elite community of visionaries</li>
+                            <li>Potential for value appreciation as the project gains recognition</li>
+                        </ul>
+                        <p>The price reflects the unique combination of art, history, and investment opportunity that each box represents.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                    Is this a joke or a real artifact?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This is absolutely a legitimate artifact and patronage opportunity. The Legacy Box Collection represents a serious innovation in the world of digital artifacts and luxury patronage. While the concept pushes boundaries and challenges traditional notions of value, it is a genuine project with real conceptual mechanisms, legal documentation, and a clear vision for creating a new category of artifact that blends physical artistry with digital legacy and patronage potential.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I acquire a Legacy Box?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Acquiring a Legacy Box involves a personalized process to ensure the right fit between patron and collection:</p>
+                        <ol>
+                            <li>Express your interest through our contact form or by scheduling a consultation</li>
+                            <li>We'll arrange a private meeting to discuss the opportunity in detail</li>
+                            <li>Review and sign the stewardship agreement</li>
+                            <li>Complete payment through our secure channels</li>
+                            <li>Receive your box ownership documentation and welcome package</li>
+                            <li>Be officially recorded as a Legacy Box owner in our registry</li>
+                        </ol>
+                        <p>This process ensures that each owner fully understands the value and significance of their purchase.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What payment methods are accepted?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer multiple secure payment options for Legacy Box purchases. Specific payment methods and details will be discussed during your private consultation to ensure we can accommodate your preferences while maintaining the highest security standards. We aim to provide flexible payment solutions that work for serious collectors while ensuring complete transaction security and confidentiality.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I get a refund if I change my mind?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Due to the exclusive nature of the Legacy Box Collection and the limited availability, refunds are generally not offered. However, we understand that exceptional circumstances may arise. We handle these situations on a case-by-case basis with the understanding that the value of each box is tied to its exclusivity and the serious commitment of each owner. We encourage potential buyers to thoroughly consider their decision and ask all necessary questions during the consultation process before committing to a purchase.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I buy more than one box?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! While we want to ensure broad access to this exclusive collection, we do allow serious collectors to acquire multiple boxes if they wish. However, we may implement certain limitations to prevent any single entity from owning too large a portion of the collection, ensuring that the Legacy Boxes remain distributed among a diverse group of visionary collectors. The Founder Box (#1) has special conditions that will be discussed during the consultation process.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is my payment secure?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Definitely. We prioritize the security and confidentiality of all financial transactions. We employ enterprise-grade encryption, secure payment processing protocols, and follow industry best practices to ensure that your financial information remains completely protected. All transactions are handled with the utmost discretion and security, befitting the premium nature of the Legacy Box Collection.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How is my ownership recorded?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your ownership is permanently recorded through multiple secure methods:</p>
+                        <ul>
+                            <li>Official digital registry with blockchain verification</li>
+                            <li>Physically signed and numbered certificate of authenticity</li>
+                            <li>Display on our website (with your preferred name or alias)</li>
+                            <li>Secure database with encrypted ownership records</li>
+                        </ul>
+                        <p>This multi-layered approach ensures that your ownership is properly documented, verifiable, and permanent. As the project gains recognition and becomes viral, this recorded ownership will become increasingly valuable as a testament to your early adoption and visionary investment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I choose a display name/alias?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sure! We understand that some collectors may prefer privacy or a specific public persona. You can choose any display name or alias you wish to be associated with your Legacy Box ownership in our public records and website display. Many collectors select creative names that reflect their personal brand or investment philosophy, while others prefer to use their actual names to build their public profile as visionary collectors.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I change my name after purchase?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sure. We understand that circumstances and preferences may change over time. You can update your display name or alias after your initial purchase, though we may limit the frequency of changes to maintain consistency in our records. There may be a nominal administrative fee for processing name changes after the initial setup to cover the costs of updating multiple verification systems.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are my details public or private?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This is entirely your choice. We offer flexible privacy options:</p>
+                        <ul>
+                            <li><strong>Full Privacy:</strong> Complete anonymity with an alias of your choice</li>
+                            <li><strong>Selective Disclosure:</strong> Your name displayed but other details private</li>
+                            <li><strong>Full Public Profile:</strong> Name and selected information displayed to build your public profile as a collector</li>
+                        </ul>
+                        <p>We respect your privacy preferences while also understanding that some collectors wish to leverage their ownership for social capital and recognition. Our system is designed to accommodate either approach seamlessly.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What happens if I resell my box?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>That's up to you. As the owner, you have the right to resell your Legacy Box if you wish. We recommend notifying us of any ownership transfers so we can update our records and ensure the new owner receives proper documentation and recognition. For Founder Box (#1) owners, there may be specific conditions related to the revenue sharing agreement that would need to be addressed during any transfer, which we can help facilitate.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-category">
+                <h2>Founder Box Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the Founder Box?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The Founder Box is Legacy Box #1, a special edition that offers unique benefits beyond the standard boxes. As the foundational piece of the entire collection, the Founder Box represents not just ownership but partnership in the project's success. The owner of the Founder Box becomes a pivotal figure in the Legacy Box story, with their support helping to validate and launch the entire collection concept.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How does the 30% revenue share work?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The Founder receives 30% of the revenue from the sale of Boxes #2 through #9. This creates a unique investment opportunity where the Founder benefits from the success of the entire collection. The revenue share is calculated based on the actual sale price of each subsequent box and is distributed quarterly with transparent reporting. This mechanism aligns the Founder's success with the project's overall success, creating a partnership rather than just a purchase.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        When will I receive my revenue share?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Revenue share payments are distributed quarterly, providing regular returns on your investment. Each quarter, we calculate the total revenue from box sales during that period, allocate the appropriate 30% share to the Founder, and process the payment by the 15th of the month following the end of each quarter. Detailed statements accompany each payment, providing full transparency about how the revenue share was calculated.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do revenue shares include the auction for Box #10?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, the revenue share applies only to Boxes #2 through #9. The final auction for Box #10 is excluded from the revenue sharing arrangement. This exclusion ensures that the auction can achieve its maximum potential value without being constrained by the revenue sharing structure, while still providing substantial financial benefits to the Founder from the sales of the other seven boxes in the collection.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can the Founder Box be resold?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, the Founder Box can be resold, but the revenue sharing agreement would transfer to the new owner. We would facilitate this transition to ensure proper documentation and continuity of the revenue share payments. The unique nature of the Founder Box means that any transfer would need to be carefully handled to preserve the integrity of the agreement and the relationship between the project and the Founder position.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-cta">
+                <h2>Still Have Questions?</h2>
+                <p>We're here to provide detailed answers and guide you through the process of owning a Legacy Box</p>
+                <a href="buy-box.html" class="btn">Reserve Your Box</a>
+                <a href="contact.html" class="btn">Contact Us</a>
+                <a href="index.html" class="btn btn-outline">Back To Home Page</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 The Legacy Box Collection. A revolutionary blend of art, history, and investment.</p>
+            <p style="margin-top: 10px;">
+                <a href="T&C.html" style="color: #999; text-decoration: none;">Terms & Conditions</a> • 
+                <a href="privacy.html" style="color: #999; text-decoration: none;">Privacy Policy</a> • 
+                <a href="contact.html" style="color: #999; text-decoration: none;">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Open first item by default
+            if (faqItems.length > 0) {
+                faqItems[0].classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
